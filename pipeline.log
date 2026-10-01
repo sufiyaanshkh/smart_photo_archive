@@ -1,0 +1,31 @@
+2026-10-01 15:04:56 │ INFO     │ run_pipeline │ ============================================================
+2026-10-01 15:04:56 │ INFO     │ run_pipeline │   Smart Photo Archive — Batch Processing Pipeline
+2026-10-01 15:04:56 │ INFO     │ run_pipeline │ ============================================================
+2026-10-01 15:04:56 │ INFO     │ run_pipeline │ Stages: ['exif', 'thumbnails', 'clip', 'keyword_matching', 'build_faiss_indices']
+2026-10-01 15:04:56 │ INFO     │ pipeline.orchestrator │ PipelineOrchestrator initialised (config=config.yaml).
+2026-10-01 15:04:56 │ INFO     │ pipeline.orchestrator │ Discovered 3 images in data/images
+2026-10-01 15:04:56 │ INFO     │ pipeline.orchestrator │ Loading CLIP embedder…
+2026-10-01 15:04:56 │ WARNING  │ pipeline.clip_embedder │ open_clip not found. Trying HuggingFace transformers fallback...
+2026-10-01 15:04:56 │ INFO     │ pipeline.clip_embedder │ Loading HuggingFace CLIP model openai/clip-vit-large-patch14 on cpu...
+2026-10-01 15:04:59 │ INFO     │ pipeline.clip_embedder │ HuggingFace CLIP loaded successfully.
+2026-10-01 15:04:59 │ INFO     │ pipeline.orchestrator │ Model loading complete.
+2026-10-01 15:04:59 │ INFO     │ pipeline.orchestrator │ === Stage: EXIF Extraction ===
+2026-10-01 15:04:59 │ INFO     │ pipeline.orchestrator │ 0 already checkpointed, 3 remaining.
+2026-10-01 15:04:59 │ INFO     │ pipeline.orchestrator │ === Stage: Thumbnail Generation ===
+2026-10-01 15:04:59 │ INFO     │ pipeline.orchestrator │ 3 thumbnails remaining.
+2026-10-01 15:04:59 │ INFO     │ pipeline.orchestrator │ === Stage: CLIP Embeddings ===
+2026-10-01 15:04:59 │ INFO     │ pipeline.orchestrator │ 3 CLIP embeddings remaining.
+2026-10-01 15:05:02 │ INFO     │ pipeline.orchestrator │ === Post-Processing: Institutional Taxonomy Matching ===
+2026-10-01 15:05:02 │ INFO     │ pipeline.keyword_matcher │ Loaded 489 keyword embeddings from data/keyword_embeddings.npy (matrix shape: (489, 768))
+2026-10-01 15:05:02 │ INFO     │ pipeline.orchestrator │ Matching 489 institutional keywords against 3 images…
+2026-10-01 15:05:02 │ INFO     │ pipeline.orchestrator │ === Post-Processing: Building FAISS Indices ===
+2026-10-01 15:05:02 │ INFO     │ pipeline.orchestrator │ CLIP FAISS index saved (3 vectors).
+2026-10-01 15:05:02 │ WARNING  │ pipeline.orchestrator │ No face embeddings — skipping face FAISS index.
+2026-10-01 15:05:02 │ INFO     │ pipeline.orchestrator │ ============================================================
+2026-10-01 15:05:02 │ INFO     │ pipeline.orchestrator │ PIPELINE COMPLETE
+2026-10-01 15:05:02 │ INFO     │ pipeline.orchestrator │   Images processed : 3
+2026-10-01 15:05:02 │ INFO     │ pipeline.orchestrator │   Faces detected   : 0
+2026-10-01 15:05:02 │ INFO     │ pipeline.orchestrator │   Face clusters    : 0
+2026-10-01 15:05:02 │ INFO     │ pipeline.orchestrator │   Tags generated   : 5
+2026-10-01 15:05:02 │ INFO     │ pipeline.orchestrator │ ============================================================
+2026-10-01 15:05:02 │ INFO     │ run_pipeline │ Total time: 0h 0m 6s

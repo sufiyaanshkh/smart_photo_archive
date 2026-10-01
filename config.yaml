@@ -1,0 +1,49 @@
+paths:
+  images_dir: "data/images"
+  thumbnails_dir: "data/thumbnails"
+  database_path: "data/archive.db"
+  faiss_clip_index_path: "data/faiss_clip.index"
+  faiss_face_index_path: "data/faiss_face.index"
+  models_cache_dir: "models_cache"
+  taxonomy_excel_path: "data/institutional_taxonomy.xlsx"
+  keyword_embeddings_path: "data/keyword_embeddings.npy"
+
+models:
+  clip_model_name: "ViT-L-14"
+  clip_pretrained: "openai"
+  ram_model_name: "ram_plus_swin_large_14m"
+  florence_model_name: "microsoft/Florence-2-large"
+  insightface_model_name: "buffalo_l"
+
+processing:
+  batch_size: 64
+  det_size: 640
+  thumbnail_size: 256
+  num_workers: 4
+
+face:
+  min_cluster_size: 3
+  cosine_threshold: 0.45
+  min_face_size: 30
+
+clip:
+  embedding_dim: 768
+
+faiss:
+  nlist: 1000
+  nprobe: 20
+
+search:
+  top_k: 50
+  rrf_k: 60
+
+keyword_matching:
+  top_n: 10
+  min_similarity: 0.2
+
+taxonomy:
+  main_sheet: "AI_Tagging_Taxonomy"
+  yolo_sheet: "YOLO_Class_Index"
+  object_similarity_threshold: 0.22
+  context_similarity_threshold: 0.25
+  scene_similarity_threshold: 0.23
